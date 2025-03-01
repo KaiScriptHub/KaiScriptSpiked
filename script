@@ -1,0 +1,145 @@
+if game.PlaceId == 17435076424 or game.PlaceId == 17516264439 or game.PlaceId == 89784144896939 or game.PlaceId = 103055555942139 then
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Kai Spiked Hub",
+    Icon = 5282615508, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    LoadingTitle = "Kai loading",
+    LoadingSubtitle = "by Kai",
+    Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+ 
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+ 
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = KaiHub, -- Create a custom folder for your hub/game
+       FileName = "Kai Hub"
+    },
+ 
+    Discord = {
+       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+ 
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"123"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+
+ local PlayerTab = Window:CreateTab("🏠Menu🏠", nil)
+ local CreditTab = Window:CreateTab("🏐Credit🏐", nil) -- Title, Image
+
+ local Button = PlayerTab:CreateButton({
+   Name = "Data Rollback + Rejoin",
+   Callback = function()
+      local args = {
+         [1] = "DIVE",
+         [2] = "Q\255"
+     }
+     
+     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("Keybind"):InvokeServer(unpack(args))
+     local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+ 
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+ 
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+ 
+coroutine.resume(Rejoin)
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+    Name = "AntiAFK",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/KaiScriptHub/AntiAFK/refs/heads/main/.gitignore", true))()
+    end,
+ })
+
+local Toggle = PlayerTab:CreateToggle({
+   Name = "Inf Stamina",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function()
+    game:GetService("Players").LocalPlayer.PlayerScripts.Stamina.Value = 9999999999999
+   end,
+})
+
+local Label = CreditTab:CreateLabel("Credit: Kai", 14329995112, Color3.fromRGB(55, 55, 55), false) -- Title, Icon, Color, IgnoreTheme
+local Label = CreditTab:CreateLabel("Discord: tolstozhopik", 18810599582, Color3.fromRGB(55, 55, 55), false)
+end;
+
+if game.PlaceId == 17357961065 then
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Kai Ichigo Hub",
+    Icon = 5282615508, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    LoadingTitle = "Kai loading",
+    LoadingSubtitle = "by Kai",
+    Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+ 
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+ 
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = KaiHub, -- Create a custom folder for your hub/game
+       FileName = "Kai Hub"
+    },
+ 
+    Discord = {
+       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+ 
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"123"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+
+ local PlayerTab = Window:CreateTab("🏠Menu🏠", nil)
+ local TeleportTab = Window:CreateTab("Teleport", nil)
+ local CreditTab = Window:CreateTab("🏐Credit🏐", nil) -- Title, Image
+
+ local Slider = PlayerTab:CreateSlider({
+    Name = "Jump Power",
+    Range = {7, 500},
+    Increment = 1,
+    Suffix = "JumpPower",
+    CurrentValue = 7,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        workspace.Entities.FanApple12.HumanoidStats.JumpPower.Value = Value
+    end,
+ })
+
+local Label = CreditTab:CreateLabel("Credit: Kai", 14329995112, Color3.fromRGB(55, 55, 55), false) -- Title, Icon, Color, IgnoreTheme
+local Label = CreditTab:CreateLabel("Discord: tolstozhopik", 18810599582, Color3.fromRGB(55, 55, 55), false)
+end;
